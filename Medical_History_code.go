@@ -414,7 +414,7 @@ func (t *SimpleChaincode) parents_to_birthday(stub shim.ChaincodeStubInterface, 
 
 	} else {											// Otherwise if there is an error
 			fmt.Printf("PARENTS_TO_BIRTHDAY: Permission Denied");
-                        return nil, errors.New(fmt.Sprintf("Permission Denied. parents_to_birthday. %m %m === %m, %m === %m, %m === %m, %m === %m, %m === %m", m m.Status, STATE_HEALTHY, m.Name, caller, caller_affiliation, HEALTHY, recipient_affiliation, DEATH, m.Dead, false))
+                        return nil, errors.New(fmt.Sprintf("Permission Denied. parents_to_birthday. %m %m === %m, %m === %m, %m === %m, %m === %m, %m === %m", m, m.Status, STATE_HEALTHY, m.Name, caller, caller_affiliation, HEALTHY, recipient_affiliation, DEATH, m.Dead, false))
 
 
 	}
