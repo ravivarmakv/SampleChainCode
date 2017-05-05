@@ -62,7 +62,7 @@ type Member struct {
 //==============================================================================================================================
 
 type ILNS_Holder struct {
-	ILNS 	[]string `json:"ILNS"`
+	ILNSs 	[]string `json:"ILNSs"`
 }
 
 
@@ -188,7 +188,7 @@ func (t *SimpleChaincode) get_caller_data(stub shim.ChaincodeStubInterface) (str
 //					JSON into the Member struct for use in the contract. Returns the Member struct.
 //					Returns empty m if it errors.
 //==============================================================================================================================
-func (t *SimpleChaincode) retrieve_ILNS(stub shim.ChaincodeStubInterface, ILNSID string) (member, error) {
+func (t *SimpleChaincode) retrieve_ILNS(stub shim.ChaincodeStubInterface, ILNSID string) (Member, error) {
 
 	var m Member
 
@@ -327,7 +327,7 @@ func (t *SimpleChaincode) ping(stub shim.ChaincodeStubInterface) ([]byte, error)
 //	 Create member - Creates the initial JSON for the vehcile and then saves it to the ledger.
 //=================================================================================================================================
 func (t *SimpleChaincode) create_member(stub shim.ChaincodeStubInterface, caller string, caller_affiliation string, ILNSID string) ([]byte, error) {
-	var m member
+	var m Member
 
 	ILNS_ID         := "\"ILNSID\":\""+ILNSID+"\", "							// Variables to define the JSON
 	name         	:= "\"Name\":\""+caller+"\", "
@@ -339,7 +339,7 @@ func (t *SimpleChaincode) create_member(stub shim.ChaincodeStubInterface, caller
 	status          := "\"Status\":0, "
 	dead       	:= "\"Dead\":false"
 
-	member_json := "{"+ILNS_ID+name+DOB+gender+BloodGrp+weight+IllnessID+status+dead+"}" 	// Concatenates the variables to create the total JSON object
+	member_json := "{"+ILNS_ID+name+DOB+gender+BloodGrp+Weight+IllnessID+status+dead+"}" 	// Concatenates the variables to create the total JSON object
 
 	matched, err := regexp.Match("^[A-z][A-z][0-8]{7}", []byte(ILNSID))  				// matched = true if the ILNSID passed fits format of two letters followed by seven digits
 
