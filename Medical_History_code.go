@@ -196,7 +196,7 @@ func (t *SimpleChaincode) retrieve_ILNS(stub shim.ChaincodeStubInterface, ILNSID
 
 	if err != nil {	fmt.Printf("RETRIEVE_ILNS: Failed to invoke member_code: %s", err); return m, errors.New("RETRIEVE_ILNS: Error retrieving member with ILNSID = " + ILNSID) }
 
-	err = json.Unmarshal(bytes, &v);
+	err = json.Unmarshal(bytes, &m);
 
     if err != nil {	fmt.Printf("RETRIEVE_ILNS: Corrupt member record "+string(bytes)+": %s", err); return m, errors.New("RETRIEVE_ILNS: Corrupt member record"+string(bytes))	}
 
@@ -431,7 +431,7 @@ func (t *SimpleChaincode) parents_to_birthday(stub shim.ChaincodeStubInterface, 
 //=================================================================================================================================
 //	 birthday_to_healthy
 //=================================================================================================================================
-func (t *SimpleChaincode) birthday_to_private(stub shim.ChaincodeStubInterface, v Vehicle, caller string, caller_affiliation string, recipient_name string, recipient_affiliation string) ([]byte, error) {
+func (t *SimpleChaincode) birthday_to_healthy(stub shim.ChaincodeStubInterface, m Member, caller string, caller_affiliation string, recipient_name string, recipient_affiliation string) ([]byte, error) {
 
 	if 		m.DOB 	   == "UNDEFINED" ||
 			m.Gender   == "UNDEFINED" ||
