@@ -25,7 +25,7 @@ const   HEALTHY  	=  "healthy"
 const   ILLNESS 	=  "illness"
 const	DEATH		=  "death"
 
-/==============================================================================================================================
+//==============================================================================================================================
 //	 Status types - Asset lifecycle is broken down into 5 statuses, this is part of the business logic to determine what can
 //					be done to the member at points in it's lifecycle
 //==============================================================================================================================
