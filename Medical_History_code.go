@@ -188,7 +188,7 @@ func (t *SimpleChaincode) get_caller_data(stub shim.ChaincodeStubInterface) (str
 //					JSON into the Member struct for use in the contract. Returns the Member struct.
 //					Returns empty m if it errors.
 //==============================================================================================================================
-func (t *SimpleChaincode) retrieve_ILNS(stub shim.ChaincodeStubInterface, v5cID string) (member, error) {
+func (t *SimpleChaincode) retrieve_ILNS(stub shim.ChaincodeStubInterface, ILNSID string) (member, error) {
 
 	var m Member
 
