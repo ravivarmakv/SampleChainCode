@@ -37,8 +37,7 @@ const 	STATE_DEATH			=  4
 
 
 
-type  SimpleChaincode struct {
-}
+
 
 //==============================================================================================================================
 //	member - Defines the structure for a car object. JSON on right tells it what JSON fields to map to
