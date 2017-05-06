@@ -410,7 +410,7 @@ func (t *SimpleChaincode) parents_to_birthday(stub shim.ChaincodeStubInterface, 
 			m.Dead				== false			{		// If the roles and users are ok
 
 					m.Name  = recipient_name					// then make the owner the new owner
-					m.Status = STATE_PARENT						// and mark it in the state of manufacture
+					m.Status = STATE_CARRYING						// and mark it in the state of manufacture
 
 	} else {											// Otherwise if there is an error
 			fmt.Printf("PARENTS_TO_BIRTHDAY: Permission Denied");
@@ -547,7 +547,7 @@ func (t *SimpleChaincode) illness_to_healthy(stub shim.ChaincodeStubInterface, m
 func (t *SimpleChaincode) healthy_to_death(stub shim.ChaincodeStubInterface, m Member, caller string, caller_affiliation string, recipient_name string, recipient_affiliation string) ([]byte, error) {
 
 	if		m.Status		== STATE_HEALTHY	&&
-			m.Owner			== caller		&&
+			m.Name			== caller		&&
 			caller_affiliation	== HEALTHY		&&
 			recipient_affiliation	== DEATH		&&
 			m.Dead			== false			{
@@ -633,7 +633,7 @@ func (t *SimpleChaincode) update_BloodGrp(stub shim.ChaincodeStubInterface, m Me
 			caller_affiliation	== BIRTHDAY	&&
 			m.Dead			== false		{
 
-					m.Reg = new_value
+					m.BloodGrp = new_value
 
 	} else {
         return nil, errors.New(fmt.Sprint("Permission denied. update_BloodGrp"))
@@ -657,7 +657,7 @@ func (t *SimpleChaincode) update_gender(stub shim.ChaincodeStubInterface, m Memb
 			caller_affiliation	!= DEATH	&&
 			m.Dead			== false		{
 
-					m.Reg = new_value
+					m.Gender = new_value
 
 	} else {
         return nil, errors.New(fmt.Sprint("Permission denied. update_gender"))
