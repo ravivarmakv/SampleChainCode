@@ -284,7 +284,7 @@ func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function strin
 	
 	fmt.Println("query is running " + function)
 	
-	caller, caller_affiliation
+	caller, caller_affiliation,
 	
     logger.Debug("function: ", function)
     logger.Debug("caller: ", caller)
