@@ -35,8 +35,8 @@ const   STATE_HEALTHY		 	=  2
 const   STATE_ILLNESS	 		=  3
 const 	STATE_DEATH			=  4
 
-
-
+type  SimpleChaincode struct {
+}
 
 
 //==============================================================================================================================
