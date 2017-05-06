@@ -574,7 +574,7 @@ func (t *SimpleChaincode) healthy_to_death(stub shim.ChaincodeStubInterface, m M
 func (t *SimpleChaincode) illness_to_death(stub shim.ChaincodeStubInterface, m Member, caller string, caller_affiliation string, recipient_name string, recipient_affiliation string) ([]byte, error) {
 
 	if		m.Status		== STATE_ILLNESS	&&
-			m.Owner			== caller		&&
+			m.Name			== caller		&&
 			caller_affiliation	== ILLNESS		&&
 			recipient_affiliation	== DEATH		&&
 			m.Dead			== false			{
@@ -681,8 +681,7 @@ func (t *SimpleChaincode) update_Weight(stub shim.ChaincodeStubInterface, m Memb
 
 	if err != nil || len(string(new_value)) != 15 { return nil, errors.New("Invalid value passed for new Weight") }
 
-	if 		m.Status		== STATE_MANUFACTURE	&&
-			m.Name			== caller		&&
+	if 		m.Name			== caller		&&
 			caller_affiliation	!= DEATH		&&
 			m.Dead			== false			{
 
